@@ -9,7 +9,7 @@ def read_elements_from_file(filename):
         for line in file:
             element = line.strip()  # Remove leading/trailing whitespace, if any
             elements.append(element)
-            if len(elements) == 8:
+            if len(elements) == 100000:
                 break  # Stop reading after 100,000 elements
     return elements
 def create_matrix(element1, element2):
