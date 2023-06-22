@@ -7,3 +7,5 @@ A bit stream of 100000 length is read from _input.txt_ and is encoded in groups 
 
 Decoding part: 
 First, the encoded data is read from _encoded.txt_. Then we use the decoder matrix to identify the bit error locations(_error_indices_) and invert the bit at those erroneous locations. Finally, redundant bits are removed to get the reconciled message. Knowledge of the number of bit errors plus the length of the input gives the bit error rate. 
+
+Note that both Alice and Bob programs take their message inputs in the form of a binary string.
