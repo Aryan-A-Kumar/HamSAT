@@ -12,6 +12,11 @@ def read_elements_from_file(filename):
             if len(elements) == 100000:
                 break  # Stop reading after 100,000 elements
     return elements
+def read_binary_string_from_file(filename):
+    with open(filename, 'r') as file:
+        binary_string = file.readline().strip()
+        integer_list = [int(char) for char in binary_string]
+        return integer_list
 def create_matrix(element1, element2):
     # Create a 1x2 matrix from the two elements
     matrix = np.array([[int(element1), int(element2)]])
@@ -39,7 +44,7 @@ def process_elements(elements_list):
             element2 = elements_list[i + 1]
             element3 = elements_list[i + 2]
             element4 = elements_list[i + 3]
-            matrix1 = np.zeros((4, 1), dtype=int)  # Declare a 2x1 matrix filled with zeros
+            matrix1 = np.zeros((4, 1), dtype=int)  # Declare a 4x1 matrix filled with zeros
 
 # Initialize the matrix with even numbers
             matrix1[0][0] = element1
@@ -55,7 +60,7 @@ def process_elements(elements_list):
     return encoded_msg
 
 filename = "input.txt"
-elements_list = read_elements_from_file(filename)
+elements_list = read_binary_string_from_file(filename)
 
 encoded_msg = process_elements(elements_list)
 print("Encoded Message:", encoded_msg)
@@ -63,10 +68,11 @@ print("Encoded Message:", encoded_msg)
 output_filename = "encoded.txt"
 with open(output_filename, 'w') as file:
     for element in encoded_msg:
-        file.write(str(element) + '\n')
+        file.write(str(element))
 
 print("Encoded message saved to", output_filename)
 #directory = os.getcwd()
 #print(directory)
+#print("Elements", elements_list)
 #print("Elements read:", len(elements_list))
 #print("First 10 elements:", elements_list[:10])
