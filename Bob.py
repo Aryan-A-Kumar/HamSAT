@@ -10,7 +10,11 @@ def read_encoded_file(filename):
             element = int(line.strip())
             encoded_list.append(element)
     return encoded_list
-
+def read_binary_string_from_file(filename):
+    with open(filename, 'r') as file:
+        binary_string = file.readline().strip()
+        integer_list = [int(char) for char in binary_string]
+        return integer_list
 def process_groups(encoded_list):
     error_indices = []
     matrix1 = np.array([[1, 0, 1, 0, 1, 0, 1],
@@ -32,7 +36,7 @@ def is_not_power_of_two(n):
     return not ((n & (n - 1) == 0) and n != 0)
 
 encoded_filename = "encoded.txt"
-BobsInput = read_encoded_file(encoded_filename)
+BobsInput = read_binary_string_from_file(encoded_filename)
 
 error_indices = process_groups(BobsInput)
 
@@ -47,7 +51,7 @@ for i, element in enumerate(BobsInput):
 reconciled_filename = "reconciled_message.txt"
 with open(reconciled_filename, 'w') as file:
     for element in reconciled_list:
-        file.write(str(element) + "\n")
-#print(reconciled_list)
+        file.write(str(element))
+print(reconciled_list)
 print("Reconciled Message stored in", reconciled_filename)
 print("Bit Error Rate: ",len(error_indices)/len(reconciled_list))
