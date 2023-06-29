@@ -46,7 +46,6 @@ def process_elements(elements_list):
             element4 = elements_list[i + 3]
             matrix1 = np.zeros((4, 1), dtype=int)  # Declare a 4x1 matrix filled with zeros
 
-# Initialize the matrix with even numbers
             matrix1[0][0] = element1
             matrix1[1][0] = element2
             matrix1[2][0] = element3
