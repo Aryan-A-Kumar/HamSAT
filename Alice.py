@@ -17,10 +17,6 @@ def read_binary_string_from_file(filename):
         binary_string = file.readline().strip()
         integer_list = [int(char) for char in binary_string]
         return integer_list
-def create_matrix(element1, element2):
-    # Create a 1x2 matrix from the two elements
-    matrix = np.array([[int(element1), int(element2)]])
-    return matrix
 
 def multiply_matrices(matrix1, matrix2):
     # Multiply two matrices
